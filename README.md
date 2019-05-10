@@ -1,6 +1,7 @@
 # Find a Brewery near you!
 
 This project is a code challenge for andCulture.
+It uses the Open Brewery DB API to help you find public information on breweries, cideries, brewpubs, and bottleshops.
 
 Learn more about andCulture can help you grow -> [andculture](https://www.andculture.com/)
 #### Preview
