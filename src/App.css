@@ -3,19 +3,16 @@
   flex-direction: column;
   justify-content: space-evenly;
   text-align: center;
-  color: #2F4858;
-  padding: 10vw;
-}
+  color: #BADA55;
+  padding: 10vw; }
 
 .App-logo {
   animation: App-logo-move infinite 0.5s alternate-reverse;
   height: 15vmin;
-  pointer-events: none;
-}
+  pointer-events: none; }
 
 ul {
-  list-style-type: none;
-}
+  list-style-type: none; }
 
 .App-header {
   min-height: 10vh;
@@ -23,45 +20,38 @@ ul {
   flex-flow: row wrap;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-}
+  font-size: calc(10px + 2vmin); }
 
 .searchContainer {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
-  align-items: stretch;
-}
+  align-items: stretch; }
 
 .react-autosuggest__container {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
-}
+  align-items: stretch; }
 
 .react-autosuggest__suggestions-list {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-}
+  align-items: flex-start; }
 
 .suggestion {
   color: #2F4858;
-  font-size: calc(10px + 2vmin);
-}
+  font-size: calc(10px + 2vmin); }
 
 .search {
   padding: 10px;
   border: 2px solid #2F4858;
   font-size: calc(5px + 2vmin);
-  border-radius: 5px;
-}
+  border-radius: 5px; }
 
 @keyframes App-logo-move {
   from {
-    transform: translateX(0px);
-  }
+    transform: translateX(0px); }
   to {
-    transform: translateX(20px);
-  }
-}
+    transform: translateX(20px); } }
+
+/*# sourceMappingURL=App.css.map */

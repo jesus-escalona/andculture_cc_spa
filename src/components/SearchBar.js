@@ -1,9 +1,6 @@
 import React, {Component} from 'react';
-import axios from "axios";
 import Autosuggest from 'react-autosuggest';
 import {cities} from "../cities";
-
-const api = process.env.REACT_APP_API_URL;
 
 const getSuggestions = value => {
     const inputValue = value.trim().toLowerCase();
@@ -23,14 +20,15 @@ class SearchBar extends Component {
         suggestions: []
     };
 
-    getBreweries = () => {
-        axios.get(`${api}/breweries/autocomplete`)
-    };
-
     onSuggestionsFetchRequested = ({ value }) => {
         this.setState({
             suggestions: getSuggestions(value).slice(0,3)
         });
+    };
+
+    onSuggestionSelected = (event, {suggestion}) => {
+        this.props.setCity(suggestion);
+        this.onSuggestionsClearRequested()
     };
 
     onSuggestionsClearRequested = () => {
@@ -48,16 +46,9 @@ class SearchBar extends Component {
     render() {
         const { value, suggestions } = this.state;
 
-        const suggestionProps = {
-            className: "search",
-            placeholder: "Type your city",
-            value,
-            onChange: this.onChange
-        };
-
         const inputProps = {
             className: "search",
-            placeholder: "Type your city",
+            placeholder: "Enter a city. Ex: New York",
             value,
             onChange: this.onChange
         };
@@ -69,6 +60,7 @@ class SearchBar extends Component {
                     getSuggestionValue={(s) => s}
                     onSuggestionsClearRequested={this.onSuggestionsClearRequested}
                     onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+                    onSuggestionSelected={this.onSuggestionSelected}
                     renderSuggestion={renderSuggestion}
                     inputProps={inputProps}
                 />

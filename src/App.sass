@@ -1,0 +1,82 @@
+@import "variables"
+
+.App
+  display: flex
+  flex-direction: column
+  justify-content: space-evenly
+  text-align: center
+  color: $fontColor
+  padding: 10vw
+
+  .breweriesList
+    display: grid
+    flex-direction: column
+    align-items: stretch
+
+  .head
+    text-align: center
+    display: grid
+    grid-template-columns: 25% 25% 25% 25%
+
+  .brewery
+    +addBorder
+    text-align: center
+    margin: 10px 0 0
+    background: white
+    display: grid
+    align-items: center
+    grid-template-columns: 25% 25% 25% 25%
+
+    a
+      text-decoration: none
+      color: $fontColor
+
+
+.App-logo
+  animation: App-logo-move infinite 0.5s alternate-reverse
+  height: 15vmin
+  pointer-events: none
+
+ul
+  list-style-type: none
+
+.App-header
+  min-height: 10vh
+  display: flex
+  flex-flow: row wrap
+  align-items: center
+  justify-content: center
+  font-size: calc(10px + 2vmin)
+
+.searchContainer
+  display: flex
+  flex-flow: column nowrap
+  justify-content: center
+  align-items: stretch
+
+.react-autosuggest__container
+  display: flex
+  flex-direction: column
+  align-items: stretch
+
+.react-autosuggest__suggestions-list
+  display: flex
+  flex-direction: column
+  align-items: flex-start
+
+.suggestion
+  color: #2F4858
+  font-size: calc(10px + 2vmin)
+
+.search
+  padding: 10px
+  +addBorder
+  font-size: calc(5px + 2vmin)
+
+@keyframes App-logo-move
+  from
+    transform: translateX(0px)
+
+  to
+    transform: translateX(20px)
+

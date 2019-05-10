@@ -1,14 +1,35 @@
-body {
-  margin: 0;
-  background-color: antiquewhite;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+/*
+Error: Invalid CSS after "body; ": expected selector or at-rule, was "{"
+        on line 3 of index.sass
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
+1: @import "variables"
+2:
+3: body; {
+4:   margin: 0;
+5:   background-color: $backgroundColor;
+6:   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+7:     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+8:     sans-serif;
+
+Backtrace:
+index.sass:3
+/Users/rafael/.rvm/gems/ruby-2.3.3/gems/sass-3.7.2/lib/sass/scss/parser.rb:1308:in `expected'
+/Users/rafael/.rvm/gems/ruby-2.3.3/gems/sass-3.7.2/lib/sass/scss/parser.rb:1238:in `expected'
+/Users/rafael/.rvm/gems/ruby-2.3.3/gems/sass-3.7.2/lib/sass/scss/parser.rb:42:in `parse'
+/Users/rafael/.rvm/gems/ruby-2.3.3/gems/sass-3.7.2/lib/sass/engine.rb:414:in `_to_tree'
+/Users/rafael/.rvm/gems/ruby-2.3.3/gems/sass-3.7.2/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+/Users/rafael/.rvm/gems/ruby-2.3.3/gems/sass-3.7.2/lib/sass/engine.rb:307:in `render_with_sourcemap'
+/Users/rafael/.rvm/gems/ruby-2.3.3/gems/sass-3.7.2/lib/sass/exec/sass_scss.rb:387:in `run'
+/Users/rafael/.rvm/gems/ruby-2.3.3/gems/sass-3.7.2/lib/sass/exec/sass_scss.rb:63:in `process_result'
+/Users/rafael/.rvm/gems/ruby-2.3.3/gems/sass-3.7.2/lib/sass/exec/base.rb:50:in `parse'
+/Users/rafael/.rvm/gems/ruby-2.3.3/gems/sass-3.7.2/lib/sass/exec/base.rb:18:in `parse!'
+/Users/rafael/.rvm/gems/ruby-2.3.3/gems/sass-3.7.2/bin/sass:13:in `<top (required)>'
+/Users/rafael/.rvm/gems/ruby-2.3.3/bin/sass:23:in `load'
+/Users/rafael/.rvm/gems/ruby-2.3.3/bin/sass:23:in `<main>'
+/Users/rafael/.rvm/gems/ruby-2.3.3/bin/ruby_executable_hooks:24:in `eval'
+/Users/rafael/.rvm/gems/ruby-2.3.3/bin/ruby_executable_hooks:24:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"body; \": expected selector or at-rule, was \"{\"\A         on line 3 of index.scss\A \A 1: @import \"variables\"\A 2: \A 3: body; {\A 4:   margin: 0;\A 5:   background-color: $backgroundColor;\A 6:   font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Roboto\", \"Oxygen\",\A 7:     \"Ubuntu\", \"Cantarell\", \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\",\A 8:     sans-serif;"; }
