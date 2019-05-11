@@ -1,16 +1,42 @@
-import React, {Component} from 'react';
+import React, {Component, ReactNode} from 'react';
+import {RouteComponentProps} from "react-router";
+import axios from "axios";
+const api = process.env.REACT_APP_API_URL;
 
-interface Props {
-    brewery: object
+type PathParamsType = {
+    id: string,
 }
 
+type Props = RouteComponentProps<PathParamsType>
+
 class BreweryDetails extends Component<Props> {
-    render() {
-        // const { name, brewery_type, street, website_url, city, state, postal_code, longitude, latitude } = this.props.brewery;
-        // console.log(name, brewery_type, street, website_url, city, state, postal_code, longitude, latitude);
+
+    state = {
+        brewery: {},
+        error: "",
+    };
+
+    getBrewery = (): void => {
+        const { id } = this.props.match.params;
+        axios.get(`${api}/breweries/${id}`)
+            .then(({data}) => {
+                this.setState({brewery: data, error: ""})
+            })
+            .catch(() => {
+                this.setState({error: `Sorry, there's no brewery with this id`, brewery: {}})
+            })
+    };
+
+    componentDidMount(): void {
+        this.getBrewery();
+    }
+
+    render(): ReactNode {
+        const { brewery, error } = this.state;
+        console.log(brewery);
         return (
             <div className="details">
-
+                {error.length !== 0 && <p>{error}</p>}
             </div>
         );
     }

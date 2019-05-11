@@ -2,6 +2,7 @@ import React, {Component, ReactElement, ReactNode} from 'react';
 import { Brewery } from "../components";
 
 export type BreweryProps = {
+    id: number,
     name: string,
     brewery_type: string,
     street: string,
@@ -10,7 +11,7 @@ export type BreweryProps = {
 
 interface Props {
     breweries: BreweryProps[],
-    city: string
+    city: string,
 }
 
 class Breweries extends Component<Props> {

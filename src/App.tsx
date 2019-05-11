@@ -1,9 +1,11 @@
 import React, {Component, ReactNode} from 'react';
+import { Route, Switch } from "react-router-dom";
 import './App.sass';
-import { Header, SearchBar } from "./components";
+import {BreweryDetails, Header, SearchBar} from "./components";
 import { Breweries } from "./containers";
 import axios from "axios";
 import {BreweryProps} from "./containers/Breweries";
+
 const api = process.env.REACT_APP_API_URL;
 
 interface State {
@@ -12,7 +14,7 @@ interface State {
     error: string,
 }
 
-interface Props {
+type Props = {
 
 }
 
@@ -50,9 +52,21 @@ class App extends Component<Props, State> {
         return (
             <div className="App">
                 <Header/>
-                <SearchBar setCity={(city: string) => this.setState({city})}/>
-                {error.length !== 0 && <h3>{error}</h3>}
-                {breweries.length !== 0 && <Breweries {...this.state}/>}
+                <Switch>
+                    <Route exact path='/'  render={(routerProps) => (
+                        <>
+                            <SearchBar setCity={(city: string) => this.setState({city})}/>
+                            {error.length !== 0 && <h3>{error}</h3>}
+                            {breweries.length !== 0 && <Breweries { ...routerProps } {...this.state}/>}
+                        </>
+                    )
+                    }/>
+                    <Route path='/brewery/:id'  render={(routerProps) => (
+                            <BreweryDetails { ...routerProps } />
+                    )
+                    }/>
+                </Switch>
+
             </div>
         );
     }
