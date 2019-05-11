@@ -9,14 +9,19 @@ class App extends Component {
 
     state = {
         breweries: [],
-        city: ""
+        city: "",
+        error: ""
     };
 
     getBreweries = () => {
         const {city} = this.state;
         axios.get(`${api}/breweries?by_city=${city}`)
             .then(({data}) => {
-                this.setState({breweries: data})
+                if(!data.length) {
+                    this.setState({error: `Sorry, we could not find any breweries in ${city}`, breweries: []})
+                } else {
+                    this.setState({breweries: data, error: ""})
+                }
             })
             .catch(error => {
                 console.log(error)
@@ -30,11 +35,13 @@ class App extends Component {
     }
 
     render() {
+        const {breweries, error} = this.state;
         return (
             <div className="App">
                 <Header/>
                 <SearchBar setCity={(city) => this.setState({city})}/>
-                <Breweries {...this.state}/>
+                {error.length !== 0 && <h3>{error}</h3>}
+                {breweries.length !== 0 && <Breweries {...this.state}/>}
             </div>
         );
     }

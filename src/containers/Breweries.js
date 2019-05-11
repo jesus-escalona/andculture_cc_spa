@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Brewery from "../components/Brewery";
+import { Brewery } from "../components";
 
 class Breweries extends Component {
     render() {
@@ -8,6 +8,7 @@ class Breweries extends Component {
         return city &&
             <>
                 <h2>Found {breweries.length} breweries in {city}</h2>
+                <h3>Click on one for more details</h3>
                 <div className="breweriesList">
                     <div className="head">
                         <h3>Brewery Name</h3>
