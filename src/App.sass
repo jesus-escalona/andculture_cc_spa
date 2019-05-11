@@ -17,6 +17,7 @@
     text-align: center
     display: grid
     grid-template-columns: 25% 25% 25% 25%
+    font-size: calc(8px + 1vmin)
 
   .brewery
     +addBorder
@@ -26,6 +27,7 @@
     display: grid
     align-items: center
     grid-template-columns: 25% 25% 25% 25%
+    font-size: calc(8px + 1vmin)
 
     a
       text-decoration: none
@@ -33,9 +35,15 @@
 
 
 .App-logo
-  animation: App-logo-move infinite 0.5s alternate-reverse
   height: 15vmin
   pointer-events: none
+
+.right
+  margin-left: 7vmin
+  animation: App-logo-move-right infinite 2s ease-out
+.left
+  margin-left: -5vmin
+  animation: App-logo-move-left infinite 2s ease-out
 
 ul
   list-style-type: none
@@ -73,10 +81,24 @@ ul
   +addBorder
   font-size: calc(5px + 2vmin)
 
-@keyframes App-logo-move
-  from
-    transform: translateX(0px)
+@keyframes App-logo-move-right
+  0%
+    transform: scale(-1,1) translateX(0px) rotate(-5deg)
 
-  to
-    transform: translateX(20px)
+  50%
+    transform: scale(-1,1) translateX(3vmin) rotate(0deg)
+
+  100%
+    transform: scale(-1,1) translateX(0px) rotate(-5deg)
+
+
+@keyframes App-logo-move-left
+  0%
+    transform: translateX(-3vmin) rotate(0)
+
+  50%
+    transform: translateX(0) rotate(-5deg)
+
+  100%
+    transform: translateX(-3vmin) rotate(0)
 

@@ -1,16 +1,25 @@
-import React, {Component} from 'react';
-import { BreweryDetails } from "./index"
+import React, {Component, ReactNode} from 'react';
+import { BreweryDetails } from "."
+import {BreweryProps} from "../containers/Breweries";
 
-class Brewery extends Component {
+interface State {
+    details: boolean
+}
+
+interface Props {
+    brewery: BreweryProps
+}
+
+class Brewery extends Component<Props, State> {
     state = {
         details: false
     };
 
-    toggleDetails = () => {
+    toggleDetails = (): void => {
         this.setState({details: !this.state.details})
     };
 
-    render() {
+    render(): ReactNode {
         const { name, brewery_type, street, website_url } = this.props.brewery;
         return (
             <>

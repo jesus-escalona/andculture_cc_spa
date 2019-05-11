@@ -1,10 +1,22 @@
-import React, {Component} from 'react';
+import React, {Component, ReactElement, ReactNode} from 'react';
 import { Brewery } from "../components";
 
-class Breweries extends Component {
-    render() {
+export type BreweryProps = {
+    name: string,
+    brewery_type: string,
+    street: string,
+    website_url: string,
+}
+
+interface Props {
+    breweries: BreweryProps[],
+    city: string
+}
+
+class Breweries extends Component<Props> {
+    render(): ReactNode {
         const { breweries, city } = this.props;
-        let breweriesList = breweries.map((brewery,i) => <Brewery key={i} brewery={brewery}/>);
+        let breweriesList = breweries.map((brewery: BreweryProps, i: number): ReactElement => <Brewery key={i} brewery={brewery}/>);
         return city &&
             <>
                 <h2>Found {breweries.length} breweries in {city}</h2>

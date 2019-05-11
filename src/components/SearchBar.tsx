@@ -2,42 +2,50 @@ import React, {Component} from 'react';
 import Autosuggest from 'react-autosuggest';
 import {cities} from "../cities";
 
-const getSuggestions = value => {
+interface Props {
+    setCity: Function;
+}
+
+interface State {
+    value: string,
+    suggestions: string[],
+}
+
+const getSuggestions = (value: string): string[] => {
     const inputValue = value.trim().toLowerCase();
     const inputLength = inputValue.length;
     return inputLength === 0 ? [] : cities.filter(city => city.toLowerCase().slice(0, inputLength) === inputValue);
 };
 
-const renderSuggestion = suggestion => {
+const renderSuggestion = (suggestion: string) => {
     return <p className="suggestion">{suggestion}</p>
 };
 
-class SearchBar extends Component {
+class SearchBar extends Component<Props, State> {
 
     state = {
         value: "",
-        brewery: {},
         suggestions: []
     };
 
-    onSuggestionsFetchRequested = ({ value }) => {
+    onSuggestionsFetchRequested = ({ value }: {value: string}): void => {
         this.setState({
             suggestions: getSuggestions(value).slice(0,3)
         });
     };
 
-    onSuggestionSelected = (event, {suggestion}) => {
+    onSuggestionSelected = (event: object, {suggestion} : {suggestion: string}): void => {
         this.props.setCity(suggestion);
         this.onSuggestionsClearRequested()
     };
 
-    onSuggestionsClearRequested = () => {
+    onSuggestionsClearRequested = (): void => {
         this.setState({
             suggestions: []
         });
     };
 
-    onChange = (event, { newValue }) => {
+    onChange = (event: object, { newValue } : { newValue: string}): void => {
         this.setState({
             value: newValue
         });
@@ -57,7 +65,7 @@ class SearchBar extends Component {
             <div className="searchContainer">
                 <Autosuggest
                     suggestions={suggestions}
-                    getSuggestionValue={(s) => s}
+                    getSuggestionValue={(s:string):string => s}
                     onSuggestionsClearRequested={this.onSuggestionsClearRequested}
                     onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
                     onSuggestionSelected={this.onSuggestionSelected}
