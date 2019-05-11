@@ -61,8 +61,7 @@ class App extends Component<Props, State> {
                         </>
                     )
                     }/>
-                    <Route path='/brewery/:id'  render={(routerProps) => (
-                            <BreweryDetails { ...routerProps } />
+                    <Route path='/brewery/:id'  component={BreweryDetails} />
                     )
                     }/>
                 </Switch>

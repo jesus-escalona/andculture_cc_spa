@@ -3,6 +3,8 @@
     <words>
       <w>autosuggest</w>
       <w>axios</w>
+      <w>mapbox</w>
+      <w>mapboxgl</w>
     </words>
   </dictionary>
 </component>

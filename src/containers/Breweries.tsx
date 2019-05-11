@@ -6,7 +6,11 @@ export type BreweryProps = {
     name: string,
     brewery_type: string,
     street: string,
+    city: string,
+    state: string,
     website_url: string,
+    latitude: string,
+    longitude: string
 }
 
 interface Props {
