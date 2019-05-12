@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, ReactNode} from 'react';
 import Autosuggest from 'react-autosuggest';
 import {cities} from "../cities";
 
@@ -17,7 +17,7 @@ const getSuggestions = (value: string): string[] => {
     return inputLength === 0 ? [] : cities.filter(city => city.toLowerCase().slice(0, inputLength) === inputValue);
 };
 
-const renderSuggestion = (suggestion: string) => {
+const renderSuggestion = (suggestion: string): ReactNode => {
     return <p className="suggestion">{suggestion}</p>
 };
 
@@ -58,12 +58,13 @@ class SearchBar extends Component<Props, State> {
     };
 
 
+
     render() {
         const { value, suggestions } = this.state;
 
         const inputProps = {
             className: "search",
-            placeholder: "Enter a city. Ex: New York",
+            placeholder: "Write the name of a city. Ex: New York",
             value,
             onChange: this.onChange,
             onKeyDown: this.onKeyDown
@@ -71,6 +72,7 @@ class SearchBar extends Component<Props, State> {
 
         return (
             <div className="searchContainer">
+                {value && <p>Press <strong>Enter</strong> to search</p>}
                 <Autosuggest
                     suggestions={suggestions}
                     getSuggestionValue={(s:string):string => s}
