@@ -1,9 +1,9 @@
 # Find a Brewery near you! 🍻
 
 This project is a code challenge for andCulture.
-It uses the Open Brewery DB API to help you find public information on breweries, cideries, brewpubs, and bottleshops.
+It uses the [Open Brewery DB API](https://www.openbrewerydb.org/) to help you find public information on breweries, cideries, brewpubs, and bottleshops.
 
-Learn more about andCulture can help you grow -> [andculture](https://www.andculture.com/)
+Learn more about andCulture can help you grow your company -> [andculture](https://www.andculture.com/)
 
 ---
 
@@ -75,7 +75,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+* This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
 
