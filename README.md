@@ -17,6 +17,14 @@ Please Wait for the Dyno to wake up.
 
 ## Prerequisites
 
+* Be sure to get your API keys from [Mapbox here!](mapbox.com/signup)
+
+* Create an .ENV file with
+```
+REACT_APP_API_URL = "https://api.openbrewerydb.org"
+REACT_APP_MAPBOX_API_KEY = "your api key here"
+```
+* You'll need the following to install and run this project.
 ```
 Node.js
 NPM/Yarn
@@ -29,15 +37,20 @@ NPM/Yarn
 ### JavaScript
 
 - [TypeScript](https://www.typescriptlang.org/) Typed superset of Javascript that compiles to plain JavaScript.
-- [React](http://facebook.github.io/react) Super helpful JavaScript library to develop components.
-- [Node-Sass](https://github.com/sass/node-sass) It allows you to natively compile .scss files to css at incredible speed and automatically via a connect middleware.
+- [React](http://facebook.github.io/react) A JavaScript library for building user interfaces.
 - [React-Autosuggest](http://react-autosuggest.js.org/) WAI-ARIA compliant autosuggest component built in React.
 - [MapBox](https://www.mapbox.com/) Location data platform for mobile and web applications.
-- [React-Map-GL](https://uber.github.io/react-map-gl/#/) Uber's React wrapper for Mapbox
+- [React-Map-GL](https://uber.github.io/react-map-gl/#/) Uber's React wrapper for Mapbox.
+
 ### CSS
 
 - [Sass](http://cssnext.putaindecode.io) Sass is a stylesheet language that’s compiled to CSS. It allows you to use variables, nested rules, mixins, functions, and more, all with a fully CSS-compatible syntax.
+- [Node-Sass](https://github.com/sass/node-sass) It allows you to natively compile .scss files to css at incredible speed and automatically via a connect middleware.
 
+### Testing
+
+- [Jest](https://jestjs.io) JavaScript Testing Framework with a focus on simplicity.
+- [Enzyme](https://airbnb.io/enzyme/) Enzyme is a JavaScript Testing utility for React that makes it easier to test your React Components' output.
 ---
 
 ## Available Scripts

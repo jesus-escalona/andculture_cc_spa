@@ -51,7 +51,7 @@ class App extends Component<Props, State> {
         const {breweries, error} = this.state;
         return (
             <div className="App">
-                <Header/>
+                <Header text='Search breweries near you!'/>
                 <Switch>
                     <Route exact path='/'  render={(routerProps) => (
                         <>

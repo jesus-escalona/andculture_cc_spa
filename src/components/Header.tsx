@@ -1,12 +1,16 @@
 import React, {Component, ReactNode} from 'react';
 import logo from "../logo.svg";
 
-class Header extends Component {
+type Props = {
+    text: string
+}
+
+class Header extends Component<Props> {
     render(): ReactNode {
         return (
             <header className="App-header">
                 <h2>
-                    Search breweries near you!
+                    {this.props.text}
                 </h2>
                 <div>
                     <img src={logo} className="App-logo right" alt="logo" />
