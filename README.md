@@ -4,18 +4,41 @@ This project is a code challenge for andCulture.
 It uses the Open Brewery DB API to help you find public information on breweries, cideries, brewpubs, and bottleshops.
 
 Learn more about andCulture can help you grow -> [andculture](https://www.andculture.com/)
-#### Preview
 
-### Prerequisites
+---
+
+## Preview
+
+Check the demo site on Heroku
+- **[BrewerMap](https://brewermap.herokuapp.com)**
+Please Wait for the Dyno to wake up.
+
+---
+
+## Prerequisites
 
 ```
 Node.js
 NPM/Yarn
 ```
 
-### Built With
+---
 
-* [Create-React-App](https://github.com/facebook/create-react-app) - The web framework used
+## Languages & tools
+
+### JavaScript
+
+- [TypeScript](https://www.typescriptlang.org/) Typed superset of Javascript that compiles to plain JavaScript.
+- [React](http://facebook.github.io/react) Super helpful JavaScript library to develop components.
+- [Node-Sass](https://github.com/sass/node-sass) It allows you to natively compile .scss files to css at incredible speed and automatically via a connect middleware.
+- [React-Autosuggest](http://react-autosuggest.js.org/) WAI-ARIA compliant autosuggest component built in React.
+- [MapBox](https://www.mapbox.com/) Location data platform for mobile and web applications.
+- [React-Map-GL](https://uber.github.io/react-map-gl/#/) Uber's React wrapper for Mapbox
+### CSS
+
+- [Sass](http://cssnext.putaindecode.io) Sass is a stylesheet language that’s compiled to CSS. It allows you to use variables, nested rules, mixins, functions, and more, all with a fully CSS-compatible syntax.
+
+---
 
 ### Available Scripts
 
@@ -39,3 +62,4 @@ The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+

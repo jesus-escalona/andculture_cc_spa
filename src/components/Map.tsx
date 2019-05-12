@@ -16,8 +16,8 @@ class Map extends Component<Props, State> {
 
     state = {
         viewport: {
-            width: '70vmax',
-            height: '50vmin',
+            width: '10vmax',
+            height: '40vh',
             latitude: 0,
             longitude: 0,
             zoom: 15
@@ -39,7 +39,7 @@ class Map extends Component<Props, State> {
         const { brewery } = this.props;
         return (
             <ReactMapGL
-                style={{border: '2px solid #2F4858', borderRadius: '5px', textAlign: 'justify', overflow: 'hidden'}}
+                style={{border: '2px solid #2F4858', borderRadius: '5px', textAlign: 'justify', overflow: 'hidden', margin: '2vmin', minWidth: '100%'}}
                 {...this.state.viewport}
                 mapStyle="mapbox://styles/mapbox/streets-v9"
                 mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_API_KEY}

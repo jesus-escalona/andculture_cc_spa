@@ -56,13 +56,8 @@ class BreweryDetails extends Component<RouteComponentProps<PathParamsType> & Sta
                 {error.length !== 0 && <p>{error}</p>}
                 {selectedBrewery &&
                 <div className="detailsContainer">
-                    <div className="details">
-                        <p>{name}</p>
-                        <p>{street}</p>
-                        <p>{city}</p>
-                        <p>{state}</p>
-                        <p>{postal_code}</p>
-                    </div>
+                    <h3>{name}</h3>
+                    <p>{`${street}, ${city}, ${state}, ${postal_code}`}</p>
                     <Map brewery={this.state.brewery}/>
                 </div>
                 }

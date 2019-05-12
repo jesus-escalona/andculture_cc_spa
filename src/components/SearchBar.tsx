@@ -34,7 +34,7 @@ class SearchBar extends Component<Props, State> {
         });
     };
 
-    onSuggestionSelected = (event: object, {suggestion} : {suggestion: string}): void => {
+    onSuggestionSelected = (event: object , {suggestion} : {suggestion: string}): void => {
         this.props.setCity(suggestion);
         this.onSuggestionsClearRequested()
     };
@@ -45,11 +45,18 @@ class SearchBar extends Component<Props, State> {
         });
     };
 
-    onChange = (event: object, { newValue } : { newValue: string}): void => {
+    onChange = (event: React.KeyboardEvent<any> , { newValue } : { newValue: string}): void => {
         this.setState({
             value: newValue
         });
     };
+
+    onKeyDown = (e: React.KeyboardEvent<any>) => {
+        if(e.key === 'Enter') {
+            this.props.setCity(this.state.value);
+        }
+    };
+
 
     render() {
         const { value, suggestions } = this.state;
@@ -58,7 +65,8 @@ class SearchBar extends Component<Props, State> {
             className: "search",
             placeholder: "Enter a city. Ex: New York",
             value,
-            onChange: this.onChange
+            onChange: this.onChange,
+            onKeyDown: this.onKeyDown
         };
 
         return (
