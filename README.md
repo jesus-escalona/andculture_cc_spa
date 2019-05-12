@@ -1,4 +1,4 @@
-# Find a Brewery near you!
+# Find a Brewery near you! 🍻
 
 This project is a code challenge for andCulture.
 It uses the Open Brewery DB API to help you find public information on breweries, cideries, brewpubs, and bottleshops.
@@ -40,7 +40,7 @@ NPM/Yarn
 
 ---
 
-### Available Scripts
+## Available Scripts
 
 In the project directory, you can run:
 
