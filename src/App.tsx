@@ -48,24 +48,22 @@ class App extends Component<Props, State> {
     }
 
     render(): ReactNode {
-        const {breweries, error} = this.state;
+        const { breweries, error } = this.state;
         return (
             <div className="App">
-                <Header text='Search breweries near you!'/>
                 <Switch>
                     <Route exact path='/'  render={(routerProps) => (
                         <>
+                            <Header text='Search breweries near you!'/>
                             <SearchBar setCity={(city: string) => this.setState({city})}/>
                             {error.length !== 0 && <h3>{error}</h3>}
                             {breweries.length !== 0 && <Breweries { ...routerProps } {...this.state}/>}
                         </>
-                    )
-                    }/>
+                    )}
+                    />
                     <Route path='/brewery/:id'  component={BreweryDetails} />
-                    )
-                    }/>
+                    <Route render={() => <Header text='404: This is not the page you are looking for' />} />
                 </Switch>
-
             </div>
         );
     }

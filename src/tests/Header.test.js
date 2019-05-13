@@ -11,7 +11,7 @@ describe('<Header />', () => {
         expect(wrapper.containsMatchingElement(<h2>try</h2>)).toBe(true);
     });
 
-    it('should have two img logo tags', () => {
+    it('should have two img logo tags inside div', () => {
         const wrapper = mount(<Header text={'try'} />);
         expect(wrapper.containsMatchingElement(<div><img alt='logo'/><img alt='logo'/></div>)).toBe(true);
     });

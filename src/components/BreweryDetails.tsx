@@ -1,8 +1,9 @@
 import React, {Component, ReactNode} from 'react';
 import {RouteComponentProps} from "react-router";
 import axios from "axios";
-import { Map } from "."
+import {Header, Map} from "."
 import {BreweryProps} from "../containers/Breweries";
+import GoBack from "./GoBack";
 const api = process.env.REACT_APP_API_URL;
 
 type PathParamsType = {
@@ -15,7 +16,7 @@ interface State {
     selectedBrewery: boolean,
 }
 
-class BreweryDetails extends Component<RouteComponentProps<PathParamsType> & State> {
+class BreweryDetails extends Component<RouteComponentProps<PathParamsType>, State> {
 
     state = {
         brewery: {
@@ -55,11 +56,14 @@ class BreweryDetails extends Component<RouteComponentProps<PathParamsType> & Sta
             <>
                 {error.length !== 0 && <p>{error}</p>}
                 {selectedBrewery &&
-                <div className="detailsContainer">
-                    <h3>{name}</h3>
-                    <p>{`${street}, ${city}, ${state}, ${postal_code}`}</p>
-                    <Map brewery={this.state.brewery}/>
-                </div>
+                <>
+                    <Header text={`Showing details for ${name}`}/>
+                    <div className="detailsContainer">
+                        <p>{`${street}, ${city}, ${state}, ${postal_code}`}</p>
+                        <Map brewery={this.state.brewery}/>
+                        <GoBack text="Back to listings" />
+                    </div>
+                </>
                 }
             </>
         );

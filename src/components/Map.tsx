@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactMapGL, {Marker, Popup, ViewState} from 'react-map-gl';
+import ReactMapGL, {Marker, ViewState} from 'react-map-gl';
 import {BreweryProps} from "../containers/Breweries";
 import CityPin from "./Pin";
 
@@ -36,7 +36,6 @@ class Map extends Component<Props, State> {
         const { error, viewport: { latitude, longitude } } = this.state;
         if (error) return <p>{error}</p>;
 
-        const { brewery } = this.props;
         return (
             <ReactMapGL
                 style={{border: '2px solid #2F4858', borderRadius: '5px', textAlign: 'justify', overflow: 'hidden', margin: '2vmin', minWidth: '100%'}}
