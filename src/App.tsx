@@ -29,6 +29,12 @@ class App extends Component<Props, State> {
         ownApi: false
     };
 
+    // Used only to wake up the Dyno on the custom API
+    componentDidMount() {
+        axios.get(`${process.env['REACT_APP_RAILS_API_URL']}/breweries`);
+    }
+
+
     getBreweries = (): void => {
         const {city, ownApi} = this.state;
         axios.get(`${process.env[`${ownApi ? 'REACT_APP_RAILS_API_URL' : 'REACT_APP_API_URL'}`]}/breweries?by_city=${city}`)
