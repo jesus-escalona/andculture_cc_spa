@@ -80,7 +80,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](https://gist.github.com/Jesus-Escalona/da471afe14add7070b742a3d7a26a857) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Authors
 
