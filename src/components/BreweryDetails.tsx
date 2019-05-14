@@ -4,10 +4,13 @@ import axios from "axios";
 import {Header, Map} from "."
 import {BreweryProps} from "../containers/Breweries";
 import GoBack from "./GoBack";
-const api = process.env.REACT_APP_API_URL;
 
 type PathParamsType = {
     id: string,
+}
+
+type Props = {
+    ownApi: boolean,
 }
 
 interface State {
@@ -16,7 +19,7 @@ interface State {
     selectedBrewery: boolean,
 }
 
-class BreweryDetails extends Component<RouteComponentProps<PathParamsType>, State> {
+class BreweryDetails extends Component<RouteComponentProps<PathParamsType> & Props, State> {
 
     state = {
         brewery: {
@@ -37,7 +40,8 @@ class BreweryDetails extends Component<RouteComponentProps<PathParamsType>, Stat
 
     getBrewery = (): void => {
         const { id } = this.props.match.params;
-        axios.get(`${api}/breweries/${id}`)
+        const { ownApi } = this.props;
+        axios.get(`${process.env[`${ownApi ? 'REACT_APP_RAILS_API_URL' : 'REACT_APP_API_URL'}`]}/breweries/${id}`)
             .then(({data}) => {
                 this.setState({brewery: data, error: "", selectedBrewery: true})
             })

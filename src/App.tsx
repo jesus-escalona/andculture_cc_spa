@@ -1,17 +1,19 @@
 import React, {Component, ReactNode} from 'react';
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch as Switcher } from "react-router-dom";
+import Switch from "react-switch";
+import axios from "axios";
+
+
 import './App.sass';
 import {BreweryDetails, Header, SearchBar} from "./components";
 import { Breweries } from "./containers";
-import axios from "axios";
 import {BreweryProps} from "./containers/Breweries";
-
-const api = process.env.REACT_APP_API_URL;
 
 interface State {
     breweries: BreweryProps[],
     city: string,
     error: string,
+    ownApi: boolean,
 }
 
 type Props = {
@@ -23,12 +25,13 @@ class App extends Component<Props, State> {
     state = {
         breweries: [],
         city: "",
-        error: ""
+        error: "",
+        ownApi: false
     };
 
     getBreweries = (): void => {
-        const {city} = this.state;
-        axios.get(`${api}/breweries?by_city=${city}`)
+        const {city, ownApi} = this.state;
+        axios.get(`${process.env[`${ownApi ? 'REACT_APP_RAILS_API_URL' : 'REACT_APP_API_URL'}`]}/breweries?by_city=${city}`)
             .then(({data}) => {
                 if(!data.length) {
                     this.setState({error: `Sorry, we could not find any breweries in ${city}`, breweries: []})
@@ -48,12 +51,17 @@ class App extends Component<Props, State> {
     }
 
     render(): ReactNode {
-        const { breweries, error } = this.state;
+        const { breweries, error, ownApi } = this.state;
+        // @ts-ignore
         return (
             <div className="App">
-                <Switch>
+                <Switcher>
                     <Route exact path='/'  render={(routerProps) => (
                         <>
+                            <div className='toggle'>
+                                <Switch checkedIcon={false} uncheckedIcon={false} offColor='#2F4858' onColor='#00C6AF' onChange={() => this.setState({ownApi: !ownApi})} checked={ownApi} />
+                                <h3 className='desc'>{ownApi ? 'Rails API' : 'OpenBreweryDB'}</h3>
+                            </div>
                             <Header text='Search breweries near you!'/>
                             <SearchBar setCity={(city: string) => this.setState({city})}/>
                             {error.length !== 0 && <h3>{error}</h3>}
@@ -61,9 +69,9 @@ class App extends Component<Props, State> {
                         </>
                     )}
                     />
-                    <Route path='/brewery/:id'  component={BreweryDetails} />
+                    <Route path='/brewery/:id'  render={(routerProps) => <BreweryDetails { ...routerProps } ownApi={ownApi}/>} />
                     <Route render={() => <Header text='404: This is not the page you are looking for' />} />
-                </Switch>
+                </Switcher>
             </div>
         );
     }
